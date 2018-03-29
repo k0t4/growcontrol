@@ -1,6 +1,6 @@
 
 
-// VERSION_1_07 ===================> TUCULTIVO.INO 
+// VERSION_1_07 ===================> GrowControl
 // Estable con 3 dth22, 2 ds18b20, 2 higrometros, 1 reloj ds3231
 // Creado 25 de febrero 2018 AMDG.
 
@@ -42,7 +42,7 @@ DeviceAddress temperatura_agua = {0x28, 0xFF, 0xE7, 0xDC, 0xA0, 0x17, 0x05, 0x9B
 //___________________________________________________________________DTH
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
- 
+
 // Uncomment whatever type you're using!
 //#define DHTTYPE DHT11   // DHT 11
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
@@ -57,9 +57,9 @@ DeviceAddress temperatura_agua = {0x28, 0xFF, 0xE7, 0xDC, 0xA0, 0x17, 0x05, 0x9B
 // Connect pin 2 of the sensor to whatever your DHTPIN is
 // Connect pin 4 (on the right) of the sensor to GROUND
 // Connect a 10K resistor from pin 2 (data) to pin 1 (power) of the sensor
- 
+
 //const int DHTPin = 5;     // what digital pin we're connected to
- 
+
 DHT dht1(HT1, DHTTYPE);
 DHT dht2(HT2, DHTTYPE);
 DHT dht3(HT3, DHTTYPE);
@@ -83,14 +83,14 @@ const int sensorPin1 = A1;
 
 
 void setup() {
-  
+
   // Iniciamos la comunicación serie
   Serial.begin(9600);
   delay(3000); // wait for console opening
-  
+
   //___________________________________________________________ds18b20
-  
-  
+
+
   // Iniciamos el bus 1-Wire
   sensorDS18B20.begin();
   // Buscamos los sensores conectados
@@ -98,18 +98,18 @@ void setup() {
   Serial.println("Encontrados: ");
   Serial.print(sensorDS18B20.getDeviceCount());
   Serial.println(" sensores");
-  
+
   //___________________________________________________________________DTH
-  
+
   //Serial.begin(9600);
    Serial.println("AMGD ADRIAN TFG");
- 
+
    dht1.begin();//Inicializamos los sensores
    dht2.begin();
    dht3.begin();
-   
+
   //__________________________________________________________________RELOJ 3231
-   
+
      //delay(3000); // wait for console opening
 
   if (! rtc.begin()) {
@@ -125,28 +125,28 @@ void setup() {
     // January 21, 2014 at 3am you would call:
     // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
   }
-   
+
   //___________________________________________________________pantalla
-  
+
   //Serial.begin(9600);
   Serial.println("ILI9341 Test!");
   tft.begin();
-  
+
 }//FIN SETUP
 
 
-void loop(void) {  
-  
+void loop(void) {
+
   //_____________________________________________________pantalla
-  
+
   //for(uint8_t rotation=0; rotation<4; rotation++) {
   //tft.setRotation(rotation);
   tft.setRotation(1);//0 y 4 vertical , 1 y 3 horizontal, 6 vertical con texto en pines.
     testText();
     delay(2000);
-  
+
   //_____________________________________________________ds18b20
-  
+
   // Wait a few seconds between measurements.
    delay(1000);
     // Mandamos comandos para toma de temperatura a los sensores
@@ -165,12 +165,12 @@ void loop(void) {
   //Serial.print("Temperatura sensor detras: ");
   //Serial.print(sensorDS18B20.getTempC(sensorAtras));
   //Serial.println(" C");
-  
+
   //__________________________________________________________________RELOJ 3231
-  
+
    delay(1000);
     DateTime now = rtc.now();
-    
+
     Serial.print(now.year(), DEC);
     Serial.print('/');
     Serial.print(now.month(), DEC);
@@ -183,24 +183,24 @@ void loop(void) {
     Serial.print(':');
     Serial.print(now.minute(), DEC);
     Serial.println();
-    
+
     Serial.println();
     delay(3000);
-  
+
   //___________________________________________________________________DTH
-  
+
   // Wait a few seconds between measurements.
    delay(1000);
- 
+
    // Reading temperature or humidity takes about 250 milliseconds!
    float h1 = dht1.readHumidity(); //para sensor 1 dht1 HT1 44
    float t1 = dht1.readTemperature();
- 
+
    if (isnan(h1) || isnan(t1)) {
       Serial.println("Failed DHT 1!");
       return;
    }
- 
+
    Serial.print("H 1: "); //del sensor 1
    Serial.print(h1);
    Serial.print(" %\t");
@@ -208,11 +208,11 @@ void loop(void) {
    Serial.print(t1);
    Serial.print(" *C ");
    Serial.print("\t");
- 
+
 
    float h2 = dht2.readHumidity(); //para sensor 2 dht2 HT2 45
    float t2 = dht2.readTemperature();
- 
+
    if (isnan(h2) || isnan(t2)) {
       Serial.println("Failed DHT 2!");
       return;
@@ -228,7 +228,7 @@ void loop(void) {
 
   float h3 = dht3.readHumidity(); //para sensor 3 dht3 HT3 46
    float t3 = dht3.readTemperature();
- 
+
    if (isnan(h3) || isnan(t3)) {
       Serial.println("Failed DHT 3!");
       return;
@@ -241,7 +241,7 @@ void loop(void) {
    Serial.print(t3);
    Serial.print(" *C ");
    Serial.print("\n");
-   
+
 //__________________________________________________________________HIGROMETROS
 
   delay(1000);
@@ -260,7 +260,7 @@ void loop(void) {
   //   Serial.println(humedad);
   //   if(humedad < 500)
   //   {
-  //      Serial.println("Encendido");  
+  //      Serial.println("Encendido");
   //      //hacer las acciones necesarias
 
   // Confi del sensor 2 en pin analogico 1 medidor de humedad de tierra
@@ -278,10 +278,10 @@ void loop(void) {
   //   Serial.println(humedad);
   //   if(humedad2 < 500)
   //   {
-  //      Serial.println("Encendido");  
+  //      Serial.println("Encendido");
   //      //hacer las acciones necesarias
   //   }
-   
+
    delay(1000);
 
 
@@ -322,13 +322,13 @@ unsigned long testText() {
   tft.print(now.hour(), DEC);
   tft.print(':');
   tft.print(now.minute(), DEC);
-  
-  
+
+
   tft.println(" ");
   tft.println(" ");
-  
+
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(2);
-  tft.print("TUCULTIVO.ino ___v1_07_");//____________________________________________________________ versión del proyecto
+  tft.print("GrowControl ___v1_07_");//____________________________________________________________ versión del proyecto
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(1);
   tft.println("VERSION");//____________________________________________________________ versión del proyecto estable / version beta con cambios
   tft.println("                                              ESTABLE");//____________________________________________________________ versión del proyecto estable / version beta con cambios
@@ -338,11 +338,11 @@ unsigned long testText() {
  // tft.setTextColor(ILI9341_GREEN);
  // tft.setTextSize(5);
  // tft.println("Groop");
-  
+
  // tft.setTextColor(ILI9341_GREEN);
   //tft.setTextSize(5);
  // tft.println("hola irene!!");
-  
+
   //tft.setTextSize(1);
   //tft.println("I implore thee,");
   //_______________________________________________________________ para ver en pantalla ds18b20
@@ -351,7 +351,7 @@ unsigned long testText() {
   tft.println(" ");
   tft.println(" SENSORES DS18B20");
   tft.println(" ");
- 
+
   tft.setTextColor(ILI9341_YELLOW); tft.setTextSize(2);
   tft.print(" TT: ");
   tft.print(sensorDS18B20.getTempC(temperatura_tierra));
@@ -360,11 +360,11 @@ unsigned long testText() {
   tft.print(sensorDS18B20.getTempC(temperatura_agua));
   tft.print(" C  ");
 
- 
+
   //________________________________________________________________ para ver en pantalla DTHs
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   //tft.println(" ");
- 
+
     // Reading temperature or humidity takes about 250 milliseconds!
    float h1 = dht1.readHumidity(); //para sensor 1 dht1 HT1 44
    float t1 = dht1.readTemperature();
@@ -379,10 +379,10 @@ unsigned long testText() {
    tft.print(" T1: ");
    tft.print(t1);
    tft.println(" C ");
- 
+
    float h2 = dht2.readHumidity(); //para sensor 2 dht2 HT2 45
    float t2 = dht2.readTemperature();
- 
+
    tft.print(" H2: ");// del sensor 2
    tft.print(h2);
    tft.print(" % ");
@@ -399,18 +399,18 @@ unsigned long testText() {
    tft.print(" T3: ");
    tft.print(t3);
    tft.println(" C ");
-  
+
   //_______________________________________________________________ para ver higrómetros
-  
+
   tft.setTextColor(ILI9341_GREEN); tft.setTextSize(1);
   tft.println(" ");
   tft.setTextColor(ILI9341_GREEN); tft.setTextSize(1);
   tft.println(" ");
   tft.println(" SENSORES HUMEDAD DEL SUELO");
   tft.println(" ");
- 
+
   tft.setTextColor(ILI9341_GREEN); tft.setTextSize(2);
-  
+
     // Confi del sensor 1 en pin analogico 0 medidor de humedad de tierra
   int val0 = analogRead(0);
   val0 = map(val0, 300, 1023, 100, 0);
@@ -426,18 +426,18 @@ unsigned long testText() {
   tft.print(" HS_2: ");
   tft.print(val1);
   tft.print("% ");
- 
+
   //___________________letras finales de la pantalla
- 
+
   tft.println(" ");
   tft.println(" ");
   tft.print("hola mundo");
-  
 
 
-  
+
+
   //_______________________________________________________________ copiar?
-  
+
   //tft.setTextSize(1);
  // tft.println("my foonting turlingdromes.");
   //tft.println("And hooptiously drangle me");
@@ -449,4 +449,3 @@ unsigned long testText() {
   //return micros() - start;
   //delay (5000);// ya tiene delay en el loop propio
 }
-

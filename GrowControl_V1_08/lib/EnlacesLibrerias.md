@@ -17,3 +17,5 @@ https://github.com/adafruit/DHT-sensor-library
 Del Reloj 3231:
 https://github.com/adafruit/RTClib/
 
+De la pantalla:
+https://github.com/adafruit/Adafruit-GFX-Library

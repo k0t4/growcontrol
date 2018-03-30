@@ -1,8 +1,8 @@
+#include <Arduino.h>
 
-
-// VERSION_1_07 ===================> GrowControl
+// VERSION_1_08 ===================> GrowControl
 // Estable con 3 dth22, 2 ds18b20, 2 higrometros, 1 reloj ds3231
-// Creado 25 de febrero 2018 AMDG.
+// Creado 30 de marzo 2018 AMDG.
 
 // Instrucciones:
 // Cambiar la version en el número de la pantalla del final del código para que coincida con el nombre del archivo.
@@ -142,6 +142,7 @@ void loop(void) {
   //for(uint8_t rotation=0; rotation<4; rotation++) {
   //tft.setRotation(rotation);
   tft.setRotation(1);//0 y 4 vertical , 1 y 3 horizontal, 6 vertical con texto en pines.
+    int testText();
     testText();
     delay(2000);
 
@@ -328,10 +329,10 @@ unsigned long testText() {
   tft.println(" ");
 
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(2);
-  tft.print("GrowControl ___v1_07_");//____________________________________________________________ versión del proyecto
+  tft.print("GrowControl ___v1_08_");//____________________________________________________________ versión del proyecto
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(1);
   tft.println("VERSION");//____________________________________________________________ versión del proyecto estable / version beta con cambios
-  tft.println("                                              ESTABLE");//____________________________________________________________ versión del proyecto estable / version beta con cambios
+  tft.println("                                              PRUEBA");//____________________________________________________________ versión del proyecto estable / version beta con cambios
   //tft.setTextColor(ILI9341_RED);    tft.setTextSize(3);
  // tft.println(0xDEADBEEF, HEX);
  // tft.println();

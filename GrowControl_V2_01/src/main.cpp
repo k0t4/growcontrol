@@ -319,13 +319,13 @@ void vlHIGROMETROS()
           //tft.println(" ");
           tft.print(" SENSORES HUMEDAD DEL SUELO");
       tft.setTextColor(ILI9341_YELLOW); tft.setTextSize(1);
-          tft.println("                       LUZ");
+          tft.println("                   LUZ");
       tft.println(" ");
       tft.setTextColor(ILI9341_GREEN); tft.setTextSize(2);
           //tft.println(" ");
-          tft.print(" HS_1 ");
+          tft.print(" HS_1: ");
           tft.print(val0);
-          tft.print("% ");
+          tft.print("%");
 
 
 
@@ -335,7 +335,7 @@ void vlHIGROMETROS()
     //analogWrite(0, val);
     Serial.print("Humedad_2: ");
     Serial.print(val1);
-    Serial.println("% ");
+    Serial.println("%");
 
     int humedad2 = analogRead(sensorPin1);
     //   Serial.print("Humedad ");
@@ -349,7 +349,7 @@ void vlHIGROMETROS()
     //   }
         tft.print(" HS_2: ");
         tft.print(val1);
-        tft.print("% ");
+        tft.print("%");
 
 
 }
@@ -368,22 +368,21 @@ void vlLDR()
     //Uso la funcion map para pasar a % el valorLDR
     valorluz = map(valorluz, 600, 0, 100, 0);
     //analogWrite(0, val);
-    Serial.print("  luz: ");
+    Serial.print("  L: ");
     Serial.print(valorluz);
-    Serial.println(" % ");
+    Serial.println("%");
 
-    tft.println(" ");
-    tft.println(" ");
-    tft.print("  luz: ");
+    //tft.println(" ");
+    //tft.println(" ");
+    tft.print(" L: ");
     tft.print(valorluz);
+    tft.println("%");
 
-    tft.print(valorluz);
-    tft.println(" % ");
       //___________________letras finales de la pantalla
-
       tft.println(" ");
       tft.println(" ");
-      tft.print("hola mundo");
+      tft.print("hola mundo; ");
+      tft.print("hola kota!");
 }
 
 
@@ -416,7 +415,7 @@ void loop()
   vlLDR();
 
   tft.println(" ");
-  tft.print("hola kota!");
+
 
 
 

@@ -1,4 +1,4 @@
-#AUTOR:
+#AUTOR: k0t4 GitHub 
 
 Es un trabajo fin de grado del grado en Ingeniería Agropecuaria y del Medio Rural por Adrián Santos P. para la UCAV.
 

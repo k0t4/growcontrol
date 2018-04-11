@@ -2,7 +2,7 @@
 
 // VERSION_2_01 ===================> GrowControl
 // Estable con 3 dth22, 2 ds18b20, 2 higrometros, 1 reloj ds3231, 1 LDR
-// Creado 30 de marzo 2018 AMDG.
+// Creado 11 de abril 2018 AMDG.
 
 // Instrucciones:
 // Cambiar la version en el número de la pantalla del final del código para que coincida con el nombre del archivo.
@@ -164,7 +164,7 @@ void vlPANTALLA()
   tft.print("GrowControl ___v2_01_");//____________________________________________________________ versión del proyecto
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(1);
   tft.println("VERSION");//____________________________________________________________ versión del proyecto estable / version beta con cambios
-  tft.println("                                              PRUEBA");//____________________________________________________________ versión del proyecto estable / version beta con cambios
+  tft.println("                                              ESTABLE");//____________________________________________________________ versión del proyecto estable / version beta con cambios
   //tft.setTextColor(ILI9341_RED);    tft.setTextSize(3);
   // tft.println(0xDEADBEEF, HEX);
   // tft.println();
@@ -378,11 +378,12 @@ void vlLDR()
     tft.print(valorluz);
     tft.println("%");
 
-      //___________________letras finales de la pantalla
+      //___________________letras finales de la pantalla para pruebas
       tft.println(" ");
       tft.println(" ");
       tft.print("hola mundo; ");
       tft.print("hola kota!");
+      tft.println(" ");
 }
 
 
@@ -413,12 +414,6 @@ void loop()
   vlDTH();
   vlHIGROMETROS();
   vlLDR();
-
-  tft.println(" ");
-
-
-
-
 
     // put your main code here, to run repeatedly:
 }

@@ -1,8 +1,8 @@
 
 
-// VERSION_2_01 ===================> GrowControl
+// VERSION_3.01 ===================> GrowControl
 // Estable con 3 dth22, 2 ds18b20, 2 higrometros, 1 reloj ds3231, 1 LDR
-// Creado 30 de marzo 2018 AMDG.
+// Creado 11 de abril 2018 AMDG.
 
 // Instrucciones:
 // Cambiar la version en el número de la pantalla del final del código para que coincida con el nombre del archivo.

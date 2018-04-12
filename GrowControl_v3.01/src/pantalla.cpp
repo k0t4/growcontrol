@@ -152,7 +152,7 @@ void vlPANTALLA()
   tft.println(" ");
 
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(2);
-  tft.print("GrowControl ___v2_01_");//____________________________________________________________ versión del proyecto
+  tft.print("GrowControl ___v3.01_");//____________________________________________________________ versión del proyecto
   tft.setTextColor(ILI9341_WHITE); tft.setTextSize(1);
   tft.println("VERSION");//____________________________________________________________ versión del proyecto estable / version beta con cambios
   tft.println("                                              PRUEBA");//____________________________________________________________ versión del proyecto estable / version beta con cambios
@@ -372,7 +372,7 @@ void vlLDR()
       //___________________letras finales de la pantalla
       tft.println(" ");
       tft.println(" ");
-      tft.print("hola LUISDA!!; ");
-      tft.print("ola ke ase kota!");
+      tft.print("hola k0t4!!; ");
+      tft.print("hola mundo!");
       tft.println(" ");
 }

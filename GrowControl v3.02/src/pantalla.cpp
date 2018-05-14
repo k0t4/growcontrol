@@ -21,17 +21,17 @@
 #include "rele1.h"
 //_______________________________________________________________________________defines
 // For the Adafruit shield, these are the default.
-#define TFT_DC 9  // PANTALLA
-#define TFT_CS 10  // PANTALLA
+#define TFT_DC 26  // PANTALLA
+#define TFT_CS 28  // PANTALLA
 
 // Uncomment whatever type you're using!
 //#define DHTTYPE DHT11   // DHT 11
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 
-#define HT1 44  //DTH
-#define HT2 45  //DTH
-#define HT3 46  //DTH
+#define HT1 40  //DTH
+#define HT2 38  //DTH
+#define HT3 36  //DTH
 // Connect pin 1 (on the left) of the sensor to +5V
 // NOTE: If using a board with 3.3V logic like an Arduino Due connect pin 1
 // to 3.3V instead of 5V!
@@ -42,7 +42,7 @@
 //________________________________________________________________________________int
 
 // Pin donde se conecta el bus 1-Wire
-const int pinDatosDQ = 6;  //ds18b20
+const int pinDatosDQ = 32;  //ds18b20
 // Instancia a las clases OneWire y DallasTemperature
 OneWire oneWireObjeto(pinDatosDQ);  //ds18b20
 DallasTemperature sensorDS18B20(&oneWireObjeto);  //ds18b20
@@ -375,7 +375,7 @@ void vlLDR()
       //___________________letras finales de la pantalla
       tft.println(" ");
       tft.println(" ");
-      tft.print("hola k0t4!!; ");
+      tft.print("hola k0t4!!!; ");
       tft.print("hola mundo!");
       tft.println(" ");
 }
